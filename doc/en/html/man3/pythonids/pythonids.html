@@ -1,0 +1,853 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.1. pythonids.__init__ &mdash; pythonids  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5.2. pythonids.pythondist" href="pythonids.pythondist.html" />
+    <link rel="prev" title="5. Modules" href="index_modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.36
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Shortcuts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">PythonIDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_cockpit.html">apidoc</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index_part_abstract.html">1. Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_platform_support.html">2. Platform Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_blueprint.html">3. Blueprint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_documents.html">4. Documents</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index_modules.html">5. Modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.1. pythonids.__init__</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-pythonids.__init__">5.1.1. Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constants">5.1.2. Constants</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax-releases-pyv-x-y-z">5.1.2.1. Syntax Releases - PYV{x}[{y}[{z}</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#encoding-support">5.1.2.2. Encoding Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isstr">5.1.2.3. ISSTR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isstrbase">5.1.2.4. ISSTRBASE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unicode">5.1.2.5. unicode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">5.1.3. Attributes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyvxyz">5.1.3.1. PYVxyz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyv27x">5.1.3.2. PYV27X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyv3x">5.1.3.3. PYV3X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spec-pyv3x3">5.1.3.4. PYV3X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyv35plus">5.1.3.5. PYV35Plus</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">5.1.4. Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#decode-pysyntax-16bit-to-str">5.1.4.1. decode_pysyntax_16bit_to_str</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decode-pysyntax-16bit-to-tuple">5.1.4.2. decode_pysyntax_16bit_to_tuple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decode-pysyntax-16bit-to-tuple-str">5.1.4.3. decode_pysyntax_16bit_to_tuple_str</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decode-pysyntax-str-to-num">5.1.4.4. decode_pysyntax_str_to_num</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#encode-pysyntax-to-16bit">5.1.4.5. encode_pysyntax_to_16bit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#exceptions">5.1.5. Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pythonids.pythondist.html">5.2. pythonids.pythondist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_indices.html">6. Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_resources.html">7. Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">8. Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">9. External References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_license.html">10. Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Application</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/index.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pythonids</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index_modules.html">5. Modules</a> &raquo;</li>
+        
+      <li>5.1. pythonids.__init__</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pythonids.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="shortcuttab"><div class="section" id="pythonids-init">
+<h1>5.1. pythonids.__init__<a class="headerlink" href="#pythonids-init" title="Permalink to this headline">¶</a></h1>
+<p>The package ‘pythonids’ provides the canonical core enumerations
+of bit encoded numeric IDs for the Python syntax.</p>
+<ul>
+<li><p><strong>Constants and Attributes</strong></p>
+<blockquote>
+<div><div class="overviewtab">
+<div class="nonbreakheadtab">
+<div class="autocolumntab"><table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 17%" />
+<col style="width: 52%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec-pyvxyz"><span class="std std-ref">PYVxyz</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id10" id="id1"><span>[Python2]</span></a> <a class="reference internal" href="references.html#id11" id="id2"><span>[Python3]</span></a></p></td>
+<td><p>Current Implementation, integer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec-pyv27x"><span class="std std-ref">PYV27X</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id10" id="id3"><span>[Python2]</span></a></p></td>
+<td><p>Python2.7, bool</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec-pyv3x"><span class="std std-ref">PYV3X</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id11" id="id4"><span>[Python3]</span></a></p></td>
+<td><p>Python3, bool</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec-pyv3x3"><span class="std std-ref">PYV3X3</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id11" id="id5"><span>[Python3]</span></a></p></td>
+<td><p>Python3.0 &lt;= x &lt;= Python3.3.x, bool</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec-pyv35plus"><span class="std std-ref">PYV35Plus</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id11" id="id6"><span>[Python3]</span></a></p></td>
+<td><p>Python3.5+, bool</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec-pyv-x-y-z"><span class="std std-ref">PYV{x}[{y}[{z}</span></a></p></td>
+<td></td>
+<td><p>Pre-Defined Constants, integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec-isstr"><span class="std std-ref">ISSTR</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id10" id="id7"><span>[Python2]</span></a> <a class="reference internal" href="references.html#id11" id="id8"><span>[Python3]</span></a></p></td>
+<td><p>tuple of valid string types, includes <em>unicode</em> for <em>Python2</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec-isstrbase"><span class="std std-ref">ISSTRBASE</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id10" id="id9"><span>[Python2]</span></a> <a class="reference internal" href="references.html#id11" id="id10"><span>[Python3]</span></a></p></td>
+<td><p>tuple of valid <em>basestring</em> types, includes <em>unicode</em> for <em>Python2</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div></blockquote>
+</li>
+<li><p><strong>Functions</strong></p>
+<blockquote>
+<div><div class="overviewtab">
+<div class="nonbreakheadtab">
+<div class="autocolumntab"><table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 15%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec-decode-pysyntax-16bit-to-str"><span class="std std-ref">decode_pysyntax_16bit_to_str</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id10" id="id11"><span>[Python2]</span></a> <a class="reference internal" href="references.html#id11" id="id12"><span>[Python3]</span></a></p></td>
+<td><p>str “&lt;major&gt;.&lt;minor&gt;.&lt;micro&gt;”</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec-decode-pysyntax-16bit-to-tuple"><span class="std std-ref">decode_pysyntax_16bit_to_tuple</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id10" id="id13"><span>[Python2]</span></a> <a class="reference internal" href="references.html#id11" id="id14"><span>[Python3]</span></a></p></td>
+<td><p>tuple (&lt;major&gt;, &lt;minor&gt;, &lt;micro&gt;)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec-decode-pysyntax-16bit-to-tuple-str"><span class="std std-ref">decode_pysyntax_16bit_to_tuple_str</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id10" id="id15"><span>[Python2]</span></a> <a class="reference internal" href="references.html#id11" id="id16"><span>[Python3]</span></a></p></td>
+<td><p>tuple (“&lt;major&gt;”, “&lt;minor&gt;”, “&lt;micro&gt;”)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#spec-decode-pysyntax-str-to-num"><span class="std std-ref">decode_pysyntax_str_to_num</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id10" id="id17"><span>[Python2]</span></a> <a class="reference internal" href="references.html#id11" id="id18"><span>[Python3]</span></a></p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#spec-encode-pysyntax-to-16bit"><span class="std std-ref">encode_pysyntax_to_16bit</span></a></p></td>
+<td><p><a class="reference internal" href="references.html#id10" id="id19"><span>[Python2]</span></a> <a class="reference internal" href="references.html#id11" id="id20"><span>[Python3]</span></a></p></td>
+<td><p>int</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div></blockquote>
+</li>
+</ul>
+<div class="section" id="module-pythonids.__init__">
+<span id="module"></span><h2>5.1.1. Module<a class="headerlink" href="#module-pythonids.__init__" title="Permalink to this headline">¶</a></h2>
+<p><em>pythonids</em> provides common information about the Python syntax.</p>
+<p>Sources: <a class="reference external" href="_modules/pythonids/__init__.html#">pythonids/__init__.py</a></p>
+</div>
+<div class="section" id="constants">
+<h2>5.1.2. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="syntax-releases-pyv-x-y-z">
+<span id="spec-pyv-x-y-z"></span><h3>5.1.2.1. Syntax Releases - PYV{x}[{y}[{z}<a class="headerlink" href="#syntax-releases-pyv-x-y-z" title="Permalink to this headline">¶</a></h3>
+<p>Definitions of predefined values for the version of the Python syntax.
+Some typical feature-milestone values are provided as runtime constants
+for comparison operations as the resulting value from
+<a class="reference internal" href="#spec-encode-pysyntax-to-16bit"><span class="std std-ref">encode_pysyntax_to_16bit()</span></a>.
+See <a class="reference internal" href="#spec-pyvxyz"><span class="std std-ref">PYVxyz</span></a>.</p>
+<blockquote>
+<div><div class="highlight-default notranslate" id="index-0"><div class="highlight"><pre><span></span><span class="n">PYV2</span>   <span class="o">=</span> <span class="mi">16384</span>  <span class="c1"># encode_pysyntax_to_16bit(2, 0, 0)</span>
+<span class="n">PYV26</span>  <span class="o">=</span> <span class="mi">17920</span>  <span class="c1"># encode_pysyntax_to_16bit(2, 6, 0)  - Python2.6</span>
+<span class="n">PYV27</span>  <span class="o">=</span> <span class="mi">18176</span>  <span class="c1"># encode_pysyntax_to_16bit(2, 7, 0)  - Python2.7</span>
+<span class="n">PYV3</span>   <span class="o">=</span> <span class="mi">24576</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 0, 0)</span>
+<span class="n">PYV32</span>  <span class="o">=</span> <span class="mi">25088</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 2, 0)  - Python3.2</span>
+<span class="n">PYV33</span>  <span class="o">=</span> <span class="mi">25089</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 3, 0)  - Python3.3</span>
+<span class="n">PYV34</span>  <span class="o">=</span> <span class="mi">25600</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 4, 0)  - Python3.4</span>
+<span class="n">PYV35</span>  <span class="o">=</span> <span class="mi">25856</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 5, 0)  - Python3.5</span>
+<span class="n">PYV36</span>  <span class="o">=</span> <span class="mi">26112</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 6, 0)  - Python3.6</span>
+<span class="n">PYV362</span> <span class="o">=</span> <span class="mi">26114</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 6, 2)</span>
+<span class="n">PYV365</span> <span class="o">=</span> <span class="mi">26117</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 6, 5)</span>
+<span class="n">PYV366</span> <span class="o">=</span> <span class="mi">26118</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 6, 6)</span>
+<span class="n">PYV37</span>  <span class="o">=</span> <span class="mi">26368</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 7, 0)  - Python3.7</span>
+<span class="n">PYV371</span> <span class="o">=</span> <span class="mi">26369</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 7, 1)</span>
+<span class="n">PYV372</span> <span class="o">=</span> <span class="mi">26370</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 7, 2)</span>
+<span class="n">PYV373</span> <span class="o">=</span> <span class="mi">26371</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 7, 3)</span>
+<span class="n">PYV374</span> <span class="o">=</span> <span class="mi">26372</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 7, 4)</span>
+<span class="n">PYV376</span> <span class="o">=</span> <span class="mi">26374</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 7, 6)</span>
+<span class="n">PYV38</span>  <span class="o">=</span> <span class="mi">26624</span>  <span class="c1"># encode_pysyntax_to_16bit(3, 8, 0)  - Python3.8</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="encoding-support">
+<h3>5.1.2.2. Encoding Support<a class="headerlink" href="#encoding-support" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="isstr">
+<span id="spec-isstr"></span><span id="index-1"></span><h3>5.1.2.3. ISSTR<a class="headerlink" href="#isstr" title="Permalink to this headline">¶</a></h3>
+<p>Provides a tuple with valid string types:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">PYV35Plus</span><span class="p">:</span>
+    <span class="n">ISSTR</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>  <span class="c1">#: string and unicode</span>
+
+    <span class="c1">#: Superpose for generic Python3 compatibility.</span>
+    <span class="n">unicode</span> <span class="o">=</span> <span class="nb">str</span>  <span class="c1"># @ReservedAssignment</span>
+
+<span class="k">elif</span> <span class="n">PYV3X</span><span class="p">:</span>
+    <span class="n">ISSTR</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>  <span class="c1">#: string and unicode</span>
+
+    <span class="c1">#: Superpose for generic Python3 compatibility.</span>
+    <span class="n">unicode</span> <span class="o">=</span> <span class="nb">str</span>  <span class="c1"># @ReservedAssignment</span>
+
+<span class="k">elif</span> <span class="n">PYV27X</span><span class="p">:</span>
+    <span class="n">ISSTR</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">unicode</span><span class="p">)</span>  <span class="c1">#: string and unicode</span>
+    <span class="n">unicode</span> <span class="o">=</span> <span class="n">unicode</span>  <span class="c1"># @ReservedAssignment</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>For the application by “<em>in</em>”:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ISSTR</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="isstrbase">
+<span id="spec-isstrbase"></span><span id="index-2"></span><h3>5.1.2.4. ISSTRBASE<a class="headerlink" href="#isstrbase" title="Permalink to this headline">¶</a></h3>
+<p>Provides a tuple with valid basic string types <em>basestring</em> - for <em>Python3</em> <em>(str,)</em>, and for <em>Python2</em> <em>(str, unicode,)</em>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">PYV35Plus</span><span class="p">:</span>
+   <span class="n">ISSTRBASE</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,)</span>  <span class="c1">#: str</span>
+
+<span class="k">elif</span> <span class="n">PYV3X</span><span class="p">:</span>
+   <span class="n">ISSTRBASE</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,)</span>  <span class="c1">#: str</span>
+
+<span class="k">elif</span> <span class="n">PYV27X</span><span class="p">:</span>
+    <span class="n">ISSTRBASE</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">unicode</span><span class="p">,)</span>  <span class="c1">#: basestr</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>For the application by “<em>in</em>”:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ISSTRBASE</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="unicode">
+<span id="spec-unicode"></span><span id="index-3"></span><h3>5.1.2.5. unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h3>
+<p>Provides a syntax release dependent type reference <em>unicode</em>, which could be used
+as a common type:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">PYV35Plus</span><span class="p">:</span>
+    <span class="n">unicode</span> <span class="o">=</span> <span class="nb">str</span>  <span class="c1"># @ReservedAssignment</span>
+
+<span class="k">elif</span> <span class="n">PYV3X</span><span class="p">:</span>
+    <span class="n">unicode</span> <span class="o">=</span> <span class="nb">str</span>  <span class="c1"># @ReservedAssignment</span>
+
+<span class="k">elif</span> <span class="n">PYV27X</span><span class="p">:</span>
+    <span class="n">unicode</span> <span class="o">=</span> <span class="n">unicode</span>  <span class="c1"># @ReservedAssignment</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="attributes">
+<span id="enum-pythondist"></span><h2>5.1.3. Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<p>The following attributes are part of the official interface and could be used alternively
+to the access functions.</p>
+<div class="section" id="pyvxyz">
+<span id="spec-pyvxyz"></span><span id="index-4"></span><h3>5.1.3.1. PYVxyz<a class="headerlink" href="#pyvxyz" title="Permalink to this headline">¶</a></h3>
+<p>Bit dynamic evaluated encoding of the current Python version.
+The value is set automatic for the current performing Python interpreter during the load of the module.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vxyz</span> <span class="p">:</span><span class="o">=</span> <span class="n">xxxyyyyyzzzzzzzz</span>
+
+<span class="n">xxx</span>      <span class="p">:</span><span class="o">=</span> <span class="n">major</span> <span class="n">version</span>
+<span class="n">yyyyy</span>    <span class="p">:</span><span class="o">=</span> <span class="n">minor</span> <span class="n">version</span>
+<span class="n">zzzzzzzz</span> <span class="p">:</span><span class="o">=</span> <span class="n">build</span>
+
+<span class="n">For</span> <span class="n">example</span> <span class="k">for</span> <span class="n">the</span> <span class="n">version</span> <span class="s2">&quot;3.6.5&quot;</span><span class="p">:</span> <span class="p">::</span>
+
+<span class="n">xxx</span>      <span class="o">=</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">011</span>
+<span class="n">yyyyy</span>    <span class="o">=</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">00110</span>
+<span class="n">zzzzzzzz</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">00000101</span>
+
+<span class="n">xxxyyyyyzzzzzzzz</span> <span class="o">=</span> <span class="mi">26117</span> <span class="o">=</span> <span class="mb">0b0110011000000101</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The value is evaluated by the call:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PYVxyz</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="o">*</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>This enables the binary checks with pre-defined integer values for fast frequent
+evaluation:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Vxyz</span> <span class="o">&amp;</span> <span class="mi">26117</span><span class="p">:</span>  <span class="c1"># 0b0110011000000101</span>
+   <span class="c1"># this is version 3.6.5</span>
+
+<span class="k">if</span> <span class="n">Vxyz</span> <span class="o">&amp;</span> <span class="mi">26112</span><span class="p">:</span>  <span class="c1"># 0b0110011000000000</span>
+   <span class="c1"># this is version 3.6</span>
+
+<span class="k">if</span> <span class="n">Vxyz</span> <span class="o">&lt;</span> <span class="mi">26112</span><span class="p">:</span>
+   <span class="c1"># this is pre-version 3.6, e.g. 3.5.x</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The use of explicit numerical reference values is here perfectly applicable because of the
+static nature of version dependencies.</p>
+<p>For example the syntax release of Python-3.6.5:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># xxx:      011</span>
+<span class="c1"># yyyyy:    00110</span>
+<span class="c1"># zzzzzzzz: 00000101</span>
+
+<span class="n">PYVxyz</span> <span class="o">=</span> <span class="mb">0b0110011000000101</span> <span class="o">=</span> <span class="mh">0x6605</span> <span class="o">=</span> <span class="mi">26117</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="pyv27x">
+<span id="spec-pyv27x"></span><span id="index-5"></span><h3>5.1.3.2. PYV27X<a class="headerlink" href="#pyv27x" title="Permalink to this headline">¶</a></h3>
+<p>Adjust to current major syntax version - Python2.7.x.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">PYV27X</span> <span class="o">=</span> <span class="n">PYVxyz</span> <span class="o">&gt;=</span> <span class="n">PYV27</span> <span class="ow">and</span> <span class="n">PYVxyz</span> <span class="o">&lt;</span> <span class="n">PYV3</span> <span class="c1">#: Python2.7</span>
+<span class="k">if</span> <span class="n">PYV27X</span><span class="p">:</span>
+    <span class="n">ISSTR</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)</span>  <span class="c1">#: string and unicode</span>
+</pre></div>
+</td></tr></table></div>
+<p>The definition includes also the helper variables <em>ISSTR</em> and <em>unicode</em>,
+which support basic multiplatform encoding checks for Python2 and Python3.</p>
+</div>
+<div class="section" id="pyv3x">
+<span id="spec-pyv3x"></span><span id="index-6"></span><h3>5.1.3.3. PYV3X<a class="headerlink" href="#pyv3x" title="Permalink to this headline">¶</a></h3>
+<p>Adjust to current syntax version - Python3.X.Y</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">PYV3X</span> <span class="o">=</span> <span class="n">PYVxyz</span> <span class="o">&gt;=</span> <span class="n">PYV3</span>  <span class="c1">#: Python3</span>
+<span class="k">if</span> <span class="n">PYV3X</span><span class="p">:</span>
+    <span class="n">PYV35Plus</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">ISSTR</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>  <span class="c1">#: string and unicode</span>
+
+    <span class="c1">#: Superpose for generic Python3 compatibility.</span>
+    <span class="nb">unicode</span> <span class="o">=</span> <span class="nb">str</span>  <span class="c1"># @ReservedAssignment</span>
+</pre></div>
+</td></tr></table></div>
+<p>The definition includes also the helper variables <em>ISSTR</em> and <em>unicode</em>,
+which support basic multiplatform encoding checks for Python2 and Python3.</p>
+</div>
+<div class="section" id="spec-pyv3x3">
+<span id="index-7"></span><span id="id23"></span><h3>5.1.3.4. PYV3X<a class="headerlink" href="#spec-pyv3x3" title="Permalink to this headline">¶</a></h3>
+<p>Adjust to current syntax version - Python3.0 &lt;= X &lt;= Python3.3.X</p>
+</div>
+<div class="section" id="pyv35plus">
+<span id="spec-pyv35plus"></span><span id="index-8"></span><h3>5.1.3.5. PYV35Plus<a class="headerlink" href="#pyv35plus" title="Permalink to this headline">¶</a></h3>
+<p>The numeric identifier of the supported Python versions.
+In most of cases the Python version 3 is considered to contain a sustainable stable
+feature set from the version 3.5 onward.
+Thus the value of <em>PYV35Plus</em> is set as a runtime constant during load.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PYV35Plus</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span>
+     <span class="kc">True</span>  <span class="c1"># Python3.5+</span>
+   <span class="o">|</span> <span class="kc">False</span> <span class="c1"># Python2.7</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>wirh the implementation:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PYV35Plus</span> <span class="o">=</span> <span class="n">PYVxyz</span> <span class="o">&gt;=</span> <span class="n">PYV35</span>  <span class="c1">#: Python3.5+</span>
+<span class="k">if</span> <span class="n">PYV35Plus</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>5.1.4. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="decode-pysyntax-16bit-to-str">
+<span id="spec-decode-pysyntax-16bit-to-str"></span><h3>5.1.4.1. decode_pysyntax_16bit_to_str<a class="headerlink" href="#decode-pysyntax-16bit-to-str" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="pythonids.__init__.decode_pysyntax_16bit_to_str">
+<code class="sig-prename descclassname">pythonids.__init__.</code><code class="sig-name descname">decode_pysyntax_16bit_to_str</code><span class="sig-paren">(</span><em class="sig-param">xyz</em>, <em class="sig-param">form='%d.%d.%d'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pythonids/__init__.html#decode_pysyntax_16bit_to_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pythonids.__init__.decode_pysyntax_16bit_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes the compressed version 16bit integer bitmask
+into the corresponding string.</p>
+<p>The optional format string <em>form</em> provides the formatting
+of a 3-value interger tuple. E.g. <em>form=”%02d.%02d.%03d”</em>.</p>
+<p>Due to the spared error checks the string has to be correct!</p>
+<p><strong>Examples</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">decode_pysyntax_16bit_to_str</span><span class="p">(</span><span class="mi">26117</span><span class="p">)</span>   <span class="o">=&gt;</span>  <span class="s1">&#39;3.6.5&#39;</span>
+<span class="n">decode_pysyntax_16bit_to_str</span><span class="p">(</span><span class="n">PYV365</span><span class="p">)</span>  <span class="o">=&gt;</span>  <span class="s1">&#39;3.6.5&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="decode-pysyntax-16bit-to-tuple">
+<span id="spec-decode-pysyntax-16bit-to-tuple"></span><h3>5.1.4.2. decode_pysyntax_16bit_to_tuple<a class="headerlink" href="#decode-pysyntax-16bit-to-tuple" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="pythonids.__init__.decode_pysyntax_16bit_to_tuple">
+<code class="sig-prename descclassname">pythonids.__init__.</code><code class="sig-name descname">decode_pysyntax_16bit_to_tuple</code><span class="sig-paren">(</span><em class="sig-param">xyz</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pythonids/__init__.html#decode_pysyntax_16bit_to_tuple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pythonids.__init__.decode_pysyntax_16bit_to_tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes the compressed version 16bit integer bitmask
+into the corresponding tuple of integer values.</p>
+<p><strong>Examples</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">decode_pysyntax_16bit_to_tuple</span><span class="p">(</span><span class="mi">26117</span><span class="p">)</span>   <span class="o">=&gt;</span>  <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">decode_pysyntax_16bit_to_tuple</span><span class="p">(</span><span class="n">PYV365</span><span class="p">)</span>  <span class="o">=&gt;</span>  <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="decode-pysyntax-16bit-to-tuple-str">
+<span id="spec-decode-pysyntax-16bit-to-tuple-str"></span><h3>5.1.4.3. decode_pysyntax_16bit_to_tuple_str<a class="headerlink" href="#decode-pysyntax-16bit-to-tuple-str" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="pythonids.__init__.decode_pysyntax_16bit_to_tuple_str">
+<code class="sig-prename descclassname">pythonids.__init__.</code><code class="sig-name descname">decode_pysyntax_16bit_to_tuple_str</code><span class="sig-paren">(</span><em class="sig-param">xyz</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pythonids/__init__.html#decode_pysyntax_16bit_to_tuple_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pythonids.__init__.decode_pysyntax_16bit_to_tuple_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes the compressed version 16bit integer bitmask
+into the corresponding tuple of integer values.</p>
+<p><strong>Examples</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">decode_pysyntax_16bit_to_tuple_str</span><span class="p">(</span><span class="mi">26117</span><span class="p">)</span>   <span class="o">=&gt;</span>  <span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">)</span>
+<span class="n">decode_pysyntax_16bit_to_tuple_str</span><span class="p">(</span><span class="n">PYV365</span><span class="p">)</span>  <span class="o">=&gt;</span>  <span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="decode-pysyntax-str-to-num">
+<span id="spec-decode-pysyntax-str-to-num"></span><h3>5.1.4.4. decode_pysyntax_str_to_num<a class="headerlink" href="#decode-pysyntax-str-to-num" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="pythonids.__init__.decode_pysyntax_str_to_num">
+<code class="sig-prename descclassname">pythonids.__init__.</code><code class="sig-name descname">decode_pysyntax_str_to_num</code><span class="sig-paren">(</span><em class="sig-param">v</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pythonids/__init__.html#decode_pysyntax_str_to_num"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pythonids.__init__.decode_pysyntax_str_to_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split a version string separated by ‘.’ into an integer
+tuple.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">decode_pysyntax_str_to_num</span><span class="p">(</span><span class="s1">&#39;1.22.17&#39;</span><span class="p">)</span>  <span class="o">=&gt;</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A tiny utility - frequently required.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>string 'x.y.z'.</strong> (<em>Version</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Integer tuple (x, y, z)</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="encode-pysyntax-to-16bit">
+<span id="spec-encode-pysyntax-to-16bit"></span><h3>5.1.4.5. encode_pysyntax_to_16bit<a class="headerlink" href="#encode-pysyntax-to-16bit" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="pythonids.__init__.encode_pysyntax_to_16bit">
+<code class="sig-prename descclassname">pythonids.__init__.</code><code class="sig-name descname">encode_pysyntax_to_16bit</code><span class="sig-paren">(</span><em class="sig-param">x=0</em>, <em class="sig-param">y=0</em>, <em class="sig-param">z=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pythonids/__init__.html#encode_pysyntax_to_16bit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pythonids.__init__.encode_pysyntax_to_16bit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes the version by calculating the 16bit integer
+bitmask for the provided Python release values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – <p>The major version number.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span>
+
+<span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x0</span> <span class="o">&lt;</span> <span class="mi">8</span>  <span class="c1"># internal low-level 16-bit optimization threshold</span>
+</pre></div>
+</div>
+</p></li>
+<li><p><strong>y</strong> – <p>The minor version number.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</p></li>
+<li><p><strong>z</strong> – <p>The numeric relase-build tag.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">256</span>
+</pre></div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The bitmask.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>pass-through</strong> – </p>
+</dd>
+</dl>
+<p><strong>Examples</strong>:</p>
+<blockquote>
+<div><p>Calculates the 16bit-mask for the Python release:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonids</span> <span class="kn">import</span> <span class="n">PYV35</span><span class="p">,</span> <span class="n">PYVxyz</span>  <span class="c1"># pre-defined values</span>
+
+<span class="kn">from</span> <span class="nn">pythonids</span> <span class="kn">import</span> <span class="n">encode_pysyntax_to_16bit</span>      <span class="c1"># function interface for the calculation</span>
+                                       <span class="c1"># of bit masks for releases</span>
+
+<span class="c1"># calculate non-pre-defined values</span>
+<span class="n">pyv33</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">pyv362</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">PYVxyz</span> <span class="o">&amp;</span> <span class="n">pyv33</span> <span class="o">==</span> <span class="n">pyv33</span><span class="p">:</span>
+ <span class="c1"># do s.th....</span>
+
+<span class="k">elif</span> <span class="n">PyVxyz</span> <span class="o">&amp;</span> <span class="n">pyv362</span> <span class="o">==</span> <span class="n">pyv362</span><span class="p">:</span>
+ <span class="c1"># do s.th. else...</span>
+
+<span class="k">elif</span> <span class="n">PyVxyz</span> <span class="o">&gt;=</span> <span class="n">PYV35</span><span class="p">:</span>
+ <span class="c1"># do s.th. else...</span>
+
+<span class="k">else</span><span class="p">:</span>
+ <span class="c1"># support the minimal and/or legacy spec....</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>or</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonids</span> <span class="kn">import</span> <span class="n">PYV35</span><span class="p">,</span> <span class="n">PYVxyz</span>  <span class="c1"># pre-defined values</span>
+
+<span class="kn">from</span> <span class="nn">pythonids</span> <span class="kn">import</span> <span class="n">encode_pysyntax_to_16bit</span>      <span class="c1"># function interface for the calculation</span>
+                                       <span class="c1"># of bit masks for releases</span>
+
+<span class="c1"># calculate non-pre-defined values</span>
+<span class="n">pyv3</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,)</span>
+<span class="n">pyv33</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">pyv362</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">PYVxyz</span> <span class="o">&amp;</span> <span class="n">pyv3</span> <span class="o">==</span> <span class="n">pyv3</span><span class="p">:</span>
+   <span class="k">if</span> <span class="n">PYVxyz</span> <span class="o">&amp;</span> <span class="n">pyv33</span> <span class="o">==</span> <span class="n">pyv33</span><span class="p">:</span>
+      <span class="c1"># do s.th....</span>
+
+<span class="k">elif</span> <span class="n">PyVxyz</span> <span class="o">&amp;</span> <span class="n">pyv362</span> <span class="o">==</span> <span class="n">pyv362</span><span class="p">:</span>
+   <span class="c1"># do s.th. else...</span>
+
+<span class="k">elif</span> <span class="n">PyVxyz</span> <span class="o">&gt;=</span> <span class="n">PYV35</span><span class="p">:</span>
+   <span class="c1"># do s.th. else...</span>
+
+<span class="k">else</span><span class="p">:</span>
+   <span class="c1"># support the minimal and/or legacy spec....</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>For example from <em>sys.version_info</em>:</p>
+<blockquote>
+<div><blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># uses 3bits:  x: 0-7</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># uses 5bits:  y: 0-31</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># uses 8bits:  z: 0-255</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>resulting in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">parsed</span><span class="o">-</span><span class="n">literal</span><span class="p">::</span>
+
+   <span class="n">Vxyz</span> <span class="o">=</span> <span class="mi">0</span><span class="n">bxxxyyyyyzzzzzzzz</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>For example:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="bp">self</span><span class="o">.</span><span class="n">bits</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># =&gt; result = 0b 011 00110 00000101</span>
+<span class="c1"># =&gt; result = 0b0110011000000101 =  26,117</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="exceptions">
+<h2>5.1.5. Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="pythonids.__init__.PythonIDsError">
+<em class="property">exception </em><code class="sig-prename descclassname">pythonids.__init__.</code><code class="sig-name descname">PythonIDsError</code><a class="reference internal" href="_modules/pythonids/__init__.html#PythonIDsError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pythonids.__init__.PythonIDsError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subsystem <em>PythonIDs</em>.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pythonids.__init__.PythonIDsImplementationError">
+<em class="property">exception </em><code class="sig-prename descclassname">pythonids.__init__.</code><code class="sig-name descname">PythonIDsImplementationError</code><a class="reference internal" href="_modules/pythonids/__init__.html#PythonIDsImplementationError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pythonids.__init__.PythonIDsImplementationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python implementation not supported.</p>
+</dd></dl>
+
+</div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pythonids.pythondist.html" class="btn btn-neutral float-right" title="5.2. pythonids.pythondist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index_modules.html" class="btn btn-neutral float-left" title="5. Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) 2016 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez
+      <span class="lastupdated">
+        Last updated on Dec 02, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
