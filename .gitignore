@@ -13,6 +13,10 @@
 /**/backup/
 /**/tmp/
 
+.vsd
+.VSD
+
+
 #Python + stuptools + sphinx
 /**/build/
 /**/dist/
@@ -49,11 +53,6 @@ profile.out
 /config.log
 /config.h
 /configure
-
-#
-# visio
-.VSD
-.vsd
 
 #
 # common suffixes
@@ -192,3 +191,7 @@ ide/eclipse/.metadata/.plugins/org.eclipse.core.runtime/*
 !.gitignore
 
 
+setenv-acue2.sh
+setenv-acue3.sh
+setenv.sh
+setenv.bat

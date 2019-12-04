@@ -1062,7 +1062,7 @@ class PythonDist(object):
 
     def __getattr__(self, name):
         """Gets the selected attribute."""
-        return self.__dict__[name] 
+        return self.__dict__.get(name) 
         
     def __setattr__(self, name, value):
         """Sets the selected attribute and synchronizes dependent."""

@@ -275,7 +275,7 @@ The value is evaluated by the call:
 
   .. parsed-literal::
 
-     PYVxyz = encode_pysyntax_to_16bit(*sys.version_info[:3])
+     PYVxyz = encode_pysyntax_to_16bit(\*sys.version_info[:3])
 
 This enables the binary checks with pre-defined integer values for fast frequent
 evaluation:
