@@ -1,4 +1,4 @@
-pythonids.implementation.circuitpython	pythonids.implementation.circuitpython-module.html
+pythonids.implementation	pythonids.implementation-module.html
 pythonids.pythondist	pythonids.pythondist-module.html
 pythonids.pythondist.ISSTR	pythonids.pythondist-module.html#ISSTR
 pythonids.pythondist.PythonDistError	pythonids.pythondist-module.html#PythonDistError
@@ -85,7 +85,6 @@ pythonids.pythondist.PyDistStr	pythonids.pythondist-module.html#PyDistStr
 pythonids.pythondist.dist2num	pythonids.pythondist-module.html#dist2num
 pythonids.pythondist.isJython	pythonids.pythondist-module.html#isJython
 pythonids.pythondist.PYE_CYTHON_PRETTY	pythonids.pythondist-module.html#PYE_CYTHON_PRETTY
-pythonids.implementation	pythonids.implementation-module.html
 pythonids.implementation.micropython	pythonids.implementation.micropython-module.html
 pythonids	pythonids-module.html
 pythonids.PYV3X	pythonids-module.html#PYV3X
@@ -134,3 +133,4 @@ pythonids.PYV373	pythonids-module.html#PYV373
 pythonids.PYV372	pythonids-module.html#PYV372
 pythonids.PYV371	pythonids-module.html#PYV371
 pythonids.PYV3X3	pythonids-module.html#PYV3X3
+pythonids.implementation.circuitpython	pythonids.implementation.circuitpython-module.html
