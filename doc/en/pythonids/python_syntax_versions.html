@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.2. Python Syntax Versions &mdash; pythonids  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.3. Implementation Versions" href="python_categorization.html" />
+    <link rel="prev" title="4.1. Bit Masks for Numeric Vectors" href="python_bitmasks.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.36
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Shortcuts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">PythonIDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_cockpit.html">apidoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_apiref_scaled.html">apiref</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index_part_abstract.html">1. Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_platform_support.html">2. Platform Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_blueprint.html">3. Blueprint</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index_part_documents.html">4. Documents</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="python_bitmasks.html">4.1. Bit Masks for Numeric Vectors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. Python Syntax Versions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-bit-of-theory">4.2.1. A bit of Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supported-python-releases">4.2.2. Supported Python Releases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syntax-versions-api">4.2.3. Syntax Versions API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#constants">4.2.3.1. Constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variables">4.2.3.2. Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions">4.2.3.3. Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-with-sys-hexversion">4.2.4. Comparison with sys.hexversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">4.2.5. Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_categorization.html">4.3. Implementation Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_interpretes_compilers.html">4.4. Python Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_supported.html">4.5. Supported Python Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_distributionapi.html">4.6. Distribution Versions API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_encode_decode.html">4.7. Python2 and Python3 Character Encoding and Decoding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index_modules.html">5. Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_indices.html">6. Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_resources.html">7. Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">8. Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">9. External References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_license.html">10. Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Application</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/index.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pythonids</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index_part_documents.html">4. Documents</a> &raquo;</li>
+        
+      <li>4.2. Python Syntax Versions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/python_syntax_versions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-syntax-versions">
+<span id="pythonsyntaxversions"></span><h1>4.2. Python Syntax Versions<a class="headerlink" href="#python-syntax-versions" title="Permalink to this headline">¶</a></h1>
+<p>The programming language Python is under evolutionary development, thus changes
+it’s overall syntax frequently.
+The syntax is defined hereby within the context of this package as the complete programming interface, which
+includes the APIs of the provided standard libraries.
+The current major step is the phase of the final switch over from <em>Python2</em> to <em>Python3</em>.
+The syntax is hereby defined by the <em>major</em> and <em>minor</em> version numbers - an optional additional third number - and provided as
+the main and reference implementation by the distribution <em>CPython</em> of the <em>Python Foundation</em>.
+Thus the versions of the <em>CPython</em> distribution has the version numbering of the syntax revision,
+see <a class="reference internal" href="references.html#pep440" id="id1">[PEP440]</a>.
+The optional <em>micro</em> number is not available at the call interface - e.g. <em>python2</em>, <em>python2.7</em> - and normally
+at least in case of the reference implementation <em>CPython</em> not relevant for the syntax decision.</p>
+<p>The syntax - or better the APIs of the close to system level standard libraries changed from the release
+<em>Python3.0</em> to <em>Python3.4</em> significantly - including based on the <em>micro</em> number - while for Python3.5+ the APIs remain widely stable.
+Thus code supporting these releases, e.g. for the original Python distribution of RHEL6, may require some
+conditional code sections even down to the level of the <em>micro</em> version.</p>
+<p>The common Python version identifier could be easily represented as a combined bitmask,
+see <a class="reference external" href="python_bitmasks.html#">A bit of Theory - Bit Masks for Numeric Vectors</a>.</p>
+<div class="section" id="a-bit-of-theory">
+<span id="bitmaskssyntaxreleases"></span><h2>4.2.1. A bit of Theory<a class="headerlink" href="#a-bit-of-theory" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Python</em> release defines pure syntax of the <em>Python</em> language, but also the standard library API.
+This comprises major cases such as the subprocess calls and multi threading, but frequently
+minor call details such as for the <em>ConfigParser</em> and the exchange of deprecated interfaces.
+This is in addition superposed by derivates such as <em>IPython</em> and <em>MicroPython</em> including the
+sub-derivative <em>CircuitPython</em>, but also
+by alternative implementations such as <em>PyPy</em> , <em>IronPython</em>, and <em>Jython</em>.
+The application has to decide whether the syntax alone, or the distribution is relevant for the
+adaptation of specific code segments.
+For the enumeration and detection of the distributions refer to the section
+<a class="reference internal" href="python_categorization.html#pythoncategorization"><span class="std std-ref">Python Syntax and Distribution Categorization</span></a>.</p>
+<p>In case of some close-to-system libraries of the lower layer, but also on application level for example
+in conjunction with multiprocessing, it could become challenging to implement and deploy common code
+for multiple platforms such as generic cloud applications.</p>
+<p>The <em>pythonids</em> package provides a 16bit value with a set of constants for conditional code segments
+in order to provide application focused 3-number release versions.</p>
+<p>The specific bit masks are designed for Python releases are of fixed sizes,
+representing the standard values with an appropriate spare range.
+The overall size is designed to fit into a 16bit register.
+The current supported value ranges are:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># major version - represented by 3bits:  0-7</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># minor version - represented by 5bits:  0-31</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># micro version - represented by 8bits:  0-255</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>This patttern requires in total 16bits, and provides the ranges:</p>
+<div class="math" id="equation-python-version-ranges">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-python-version-ranges" title="Permalink to this equation">¶</a></span><img src="_images/math/5cfbef07280a3bf699a8079476c536e30a239536.png" alt="\begin{split}
+v(x_{major})&amp;: 0&lt;=i&lt;8\\
+v(x_{minor})&amp;: 0&lt;=i&lt;32\\
+v(x_{build})&amp;: 0&lt;=i&lt;256
+\end{split}"/></p>
+</div><p>which provides a range of:</p>
+<div class="math" id="equation-python-version-value-range">
+<p><span class="eqno">(2)<a class="headerlink" href="#equation-python-version-value-range" title="Permalink to this equation">¶</a></span><img src="_images/math/a8c4bf9d2c195be4c8777d538c54cd0fd00592a5.png" alt="Python0.0.0 &lt;= Px &lt;= Python7.31.255"/></p>
+</div><p>The bitmask layout of the integer value is:</p>
+<blockquote>
+<div><a class="reference internal" href="_images/bitarray-python.png"><img alt="bitmaskpyvers" src="_images/bitarray-python.png" style="width: 300px;" /></a>
+<a class="reference external" href="_static/bitarray-python.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></div></blockquote>
+<p>For example the version <em>Python-3.6.5</em> is represented as:</p>
+<blockquote>
+<div><a class="reference internal" href="_images/bitarray-python365.png"><img alt="bitmaskpyvers365" src="_images/bitarray-python365.png" style="width: 300px;" /></a>
+<a class="reference external" href="_static/bitarray-python365.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></div></blockquote>
+<p>or as numeric representation:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="mb">0b0110011000000101</span> <span class="o">=</span> <span class="mo">031405</span> <span class="o">=</span> <span class="mh">0x3305</span> <span class="o">=</span> <span class="mi">13061</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>The features  may in addition vary by the specific platform, which results
+in several system dependent libraries with a few to significant differences.
+The ongoing development of the version Python3 evolves with a continous
+change of major and minor features including dependency on the micro versions.
+The system platform is represented by the standard library <em>sys</em> as:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span>  <span class="c1"># the label of current platform</span>
+              <span class="c1"># e.g. &#39;linux2&#39;, &#39;win32&#39;, &#39;darwin&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The package <em>pythonids</em> provides canonical numerical values on a higher granularity
+for the supported system platforms.
+This enables in addition for code of system dependent variants controlled by
+simple and fast integer comparison operations.
+For the implementation details refer to [<a class="reference external" href="package_init.html#encode_pysyntax_to_16bit">encode_pysyntax_to_16bit()</a>].</p>
+<p>The following code-example depicts an example for the combined application:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+   <span class="c1"># Python3</span>
+   <span class="c1"># prepare loop</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+      <span class="c1"># Python3</span>
+
+      <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+         <span class="c1"># Python - 3.0 &lt; 3.5</span>
+
+         <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;linux2&#39;</span><span class="p">,</span> <span class="s1">&#39;darwin&#39;</span><span class="p">):</span>
+            <span class="c1"># do s. th.</span>
+         <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># do s.th. else.</span>
+
+      <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">6</span> <span class="n">an</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+         <span class="c1"># Python - 3.5.0 &lt; 3.5.3</span>
+         <span class="c1"># do s. th.</span>
+
+      <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+         <span class="c1"># Python - 3.5.4 &lt; 3.6.3</span>
+         <span class="c1"># do s. th.</span>
+
+   <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+      <span class="c1"># Python2.7</span>
+
+      <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;linux2&#39;</span><span class="p">:</span>
+         <span class="c1"># do s. th.</span>
+
+      <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
+         <span class="c1"># do s. th.</span>
+
+      <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+         <span class="c1"># do s. th.</span>
+
+      <span class="k">else</span><span class="p">:</span>
+         <span class="c1"># do s.th. else.</span>
+
+   <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># PythonX &lt;= Python2.6</span>
+
+      <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+         <span class="k">raise</span> <span class="n">Exceptio</span><span class="p">(</span><span class="s2">&quot;Not supported.&quot;</span><span class="p">)</span>
+
+      <span class="c1"># do s.th....</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The same based on static bit masks of version dependency:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonids</span> <span class="k">import</span> <span class="n">RTE</span><span class="p">,</span> <span class="n">RTE_LINUX</span><span class="p">,</span> <span class="n">RTE_OSX</span><span class="p">,</span> <span class="n">RTE_WIN32</span>
+<span class="kn">from</span> <span class="nn">pythonids</span> <span class="k">import</span> <span class="n">PYV35Plus</span><span class="p">,</span> <span class="n">Vxyz</span><span class="p">,</span> <span class="n">encode_pysyntax_to_16bit</span>
+
+<span class="k">if</span> <span class="n">PYV35Plus</span><span class="p">:</span>
+   <span class="c1"># Python3</span>
+   <span class="c1"># prepare loop</span>
+
+<span class="n">v27</span>  <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">v35</span>  <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">v353</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">v363</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">PYV35Plus</span><span class="p">:</span>
+      <span class="c1"># Python3</span>
+
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">Vxyz</span> <span class="o">&amp;</span> <span class="n">v35</span><span class="p">:</span>
+         <span class="c1"># Python - 3.0 &lt; 3.5</span>
+
+         <span class="k">if</span> <span class="n">RTE</span> <span class="o">&amp;</span> <span class="n">RTE_POSIX</span><span class="p">:</span>
+            <span class="c1"># do s. th.</span>
+         <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># do s.th. else.</span>
+
+      <span class="k">elif</span>  <span class="n">Vxyz</span> <span class="o">&amp;</span> <span class="n">v353</span><span class="p">:</span>
+         <span class="c1"># Python - 3.5.0 &lt; 3.5.3</span>
+         <span class="c1"># do s. th.</span>
+
+      <span class="k">elif</span> <span class="ow">not</span> <span class="n">Vxyz</span> <span class="o">&amp;</span> <span class="n">v363</span><span class="p">:</span>
+         <span class="c1"># Python - 3.5.4 &lt; 3.6.3</span>
+         <span class="c1"># do s. th.</span>
+
+
+   <span class="k">elif</span> <span class="n">Vxyz</span> <span class="o">&amp;</span> <span class="n">v27</span><span class="p">:</span>
+      <span class="c1"># Python2.7</span>
+
+      <span class="k">if</span> <span class="n">RTE</span> <span class="o">&amp;</span> <span class="n">RTE_LINUX</span><span class="p">:</span>
+         <span class="c1"># do s. th.</span>
+
+      <span class="k">elif</span> <span class="n">RTE</span> <span class="o">&amp;</span> <span class="n">RTE_OSX</span><span class="p">:</span>
+         <span class="c1"># do s. th.</span>
+
+      <span class="k">elif</span> <span class="n">RTE</span> <span class="o">&amp;</span> <span class="n">RTE_WIN32</span><span class="p">:</span>
+         <span class="c1"># do s. th.</span>
+
+      <span class="k">else</span><span class="p">:</span>
+         <span class="c1"># do s.th. else.</span>
+
+   <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># PythonX &lt;= Python2.6</span>
+
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">RTE</span> <span class="o">&amp;</span> <span class="n">RTE_WIN32</span><span class="p">:</span>
+         <span class="k">raise</span> <span class="n">Exceptio</span><span class="p">(</span><span class="s2">&quot;Not supported.&quot;</span><span class="p">)</span>
+
+      <span class="c1"># do s.th....</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythonids</span> <span class="kn">import</span> <span class="n">PYV35Plus</span><span class="p">,</span> <span class="n">encode_pysyntax_to_16bit</span>
+
+<span class="c1"># bit-mask values               # 0bxxxxyyyyyzzzzzzz</span>
+<span class="n">vref363</span>  <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="c1"># 0b0011001100000011 == 13,059</span>
+<span class="n">vref32</span>   <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>        <span class="c1"># 0b0011000100000000 == 12,544</span>
+<span class="n">vref27</span>   <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>        <span class="c1"># 0b0010011100000000 ==  9,984</span>
+<span class="n">vref2714</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>    <span class="c1"># 0b0010011100001110 ==  9,998</span>
+<span class="n">vref26</span>   <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>        <span class="c1"># 0b0010001100000000 ==  8,960</span>
+<span class="n">vref245</span>  <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="c1"># 0b0010001000000101 ==  8,709</span>
+
+<span class="n">myStaticScalar</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span>  <span class="c1">#      0bxxxxyyyyyzzzzzzz</span>
+   <span class="o">*</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>   <span class="c1"># e.g. 0b0010010000000011 == 8,709 := (2, 4, 5)</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">myTempPrePython3Handler</span><span class="p">():</span>
+   <span class="k">if</span> <span class="n">myStaticScalar</span> <span class="o">&gt;=</span> <span class="n">vref2714</span><span class="p">:</span>
+      <span class="c1"># for 2.7.14+</span>
+      <span class="n">alternative1a</span><span class="p">()</span>
+
+   <span class="k">elif</span> <span class="n">myStaticScalar</span> <span class="o">&amp;</span> <span class="n">vref27</span><span class="p">:</span>
+      <span class="c1"># for 2.7.0 - 2.7.13</span>
+      <span class="n">alternative1b</span><span class="p">()</span>
+
+   <span class="k">elif</span> <span class="n">myStaticScalar</span> <span class="o">&lt;</span> <span class="n">vref27</span><span class="p">:</span>
+      <span class="c1"># for pre-2.7</span>
+      <span class="n">alternative2</span><span class="p">()</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>  <span class="c1"># 1.000.000</span>
+
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">PYV35Plus</span><span class="p">:</span>
+      <span class="c1"># for PythonX &lt; Python3</span>
+      <span class="n">myTempPrePython3Handler</span><span class="p">()</span>
+
+   <span class="k">elif</span> <span class="n">myStaticScalar</span> <span class="o">&gt;</span> <span class="n">vref363</span><span class="p">:</span>
+      <span class="c1"># for the introduced new feature of 3.6.4+</span>
+      <span class="c1">#</span>
+      <span class="c1"># the only remaining variant for the revision once</span>
+      <span class="c1"># the support for the Python2 and Python 3.0.0 - 3.6.3</span>
+      <span class="c1"># variants are canceld</span>
+      <span class="c1">#</span>
+      <span class="n">target_variant</span><span class="p">()</span>
+
+   <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># for 3.0 &lt;= x &lt;= 3.6.2</span>
+      <span class="n">temporary_alternative_python3_migration</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>This code could be later easily modified to <em>Python3</em> support only:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># bit-mask values               # 0bxxxxyyyyyzzzzzzz</span>
+<span class="n">vref363</span>  <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="c1"># 0b0011001100000011 == 13,059</span>
+<span class="n">vref32</span>   <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>        <span class="c1"># 0b0011000100000000 == 12,544</span>
+
+<span class="n">myStaticScalar</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span>  <span class="c1">#      0bxxxxyyyyyzzzzzzz</span>
+   <span class="o">*</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>   <span class="c1"># e.g. 0b0011010000000011 == 8,709 := (3, 4, 5)</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>  <span class="c1"># 1.000.000</span>
+
+   <span class="k">if</span> <span class="n">myStaticScalar</span> <span class="o">&gt;</span> <span class="n">vref363</span><span class="p">:</span>
+      <span class="c1"># for 3.6.4+</span>
+      <span class="n">target_variant</span><span class="p">()</span>
+
+   <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># for 3.0 &lt;= x &lt;= 3.6.2</span>
+      <span class="n">temporary_alternative_python3_migration</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>and later as easy migrated to the final target of stable <em>Python3</em> features only.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>  <span class="c1"># 1.000.000</span>
+   <span class="n">target_variant</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>The following example demonstrates the application in order to handle
+the changes of the Python interpreter.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pythonids</span> <span class="kn">import</span> <span class="n">PYVxyz</span><span class="p">,</span> <span class="n">PYV35</span><span class="p">,</span> <span class="n">PYV33</span><span class="p">,</span> <span class="n">PYV2</span><span class="p">,</span> \\
+   <span class="n">encode_pysyntax_to_16bit</span>
+
+<span class="c1">#: The Python release of current process</span>
+<span class="n">PYVxyz</span> <span class="o">=</span> <span class="n">encode_pysyntax_to_16bit</span><span class="p">(</span><span class="o">*</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">modfpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;dist&#39;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">_impmodname</span> <span class="o">+</span> <span class="s1">&#39;.py&#39;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">PYV35Plus</span><span class="p">:</span> <span class="c1"># PYVxyz &gt;= PYV35: # Python 3.5+</span>
+        <span class="kn">import</span> <span class="nn">importlib.util</span>  <span class="c1"># @UnresolvedImport</span>
+        <span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span><span class="n">_impmodname</span><span class="p">,</span> <span class="n">modfpath</span><span class="p">)</span>  <span class="c1"># @UndefinedVariable</span>
+        <span class="k">if</span> <span class="n">spec</span><span class="p">:</span>
+            <span class="n">_modx</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>  <span class="c1"># @UndefinedVariable</span>
+            <span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">_modx</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">PYVxyz</span> <span class="o">&gt;=</span> <span class="n">PYV33</span><span class="p">:</span> <span class="c1"># Python 3.3 and 3.4</span>
+        <span class="kn">from</span> <span class="nn">importlib.machinery</span> <span class="kn">import</span> <span class="n">SourceFileLoader</span>  <span class="c1"># @UnresolvedImport</span>
+        <span class="n">_modx</span> <span class="o">=</span> <span class="n">SourceFileLoader</span><span class="p">(</span><span class="n">_impmodname</span><span class="p">,</span> <span class="n">modfpath</span><span class="p">)</span><span class="o">.</span><span class="n">load_module</span><span class="p">()</span>
+
+    <span class="k">elif</span> <span class="n">PYVxyz</span> <span class="o">&amp;</span> <span class="n">PYV2</span><span class="p">:</span> <span class="c1"># Python 2 - verified and released for 2.7 only, but don&#39;t block</span>
+        <span class="kn">import</span> <span class="nn">imp</span>
+        <span class="n">_modx</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">load_source</span><span class="p">(</span><span class="n">_impmodname</span><span class="p">,</span> <span class="n">modfpath</span><span class="p">)</span>
+
+    <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">_impmodname</span><span class="p">]</span> <span class="o">=</span> <span class="n">_modx</span>
+    <span class="nb">globals</span><span class="p">()[</span><span class="n">_impmodname</span><span class="p">]</span> <span class="o">=</span> <span class="n">_modx</span>
+
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="c1"># continue with generic</span>
+    <span class="k">pass</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div>
+<div class="section" id="supported-python-releases">
+<h2>4.2.2. Supported Python Releases<a class="headerlink" href="#supported-python-releases" title="Permalink to this headline">¶</a></h2>
+<p>The following Python interpreters and releases are used to veriy and test the code:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="14%" />
+<col width="14%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Python</th>
+<th class="head">major</th>
+<th class="head">minor</th>
+<th class="head">distrel</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CPython</td>
+<td>2</td>
+<td>7</td>
+<td>CPython-2.7</td>
+</tr>
+<tr class="row-odd"><td>CPython</td>
+<td>3</td>
+<td>5+</td>
+<td>CPython-3.5+</td>
+</tr>
+<tr class="row-even"><td>CircuitPython</td>
+<td>3</td>
+<td>4</td>
+<td>CircuitPython-3.0+</td>
+</tr>
+<tr class="row-odd"><td>Cython</td>
+<td>2</td>
+<td>7</td>
+<td>Cython-0.27+</td>
+</tr>
+<tr class="row-even"><td>Cython</td>
+<td>3</td>
+<td>0+</td>
+<td>Cython-3.0a3</td>
+</tr>
+<tr class="row-odd"><td>IronPython</td>
+<td>2</td>
+<td>7</td>
+<td>IronPython-2.7+</td>
+</tr>
+<tr class="row-even"><td>Jython</td>
+<td>2</td>
+<td>7</td>
+<td>Jython-2.7</td>
+</tr>
+<tr class="row-odd"><td>MicroPython</td>
+<td>3</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>PyPy</td>
+<td>2</td>
+<td>7</td>
+<td>PyPy-5.8+</td>
+</tr>
+<tr class="row-odd"><td>PyPy</td>
+<td>3</td>
+<td>5+</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>iPython</td>
+<td>2</td>
+<td>7</td>
+<td>IPython-5.5+</td>
+</tr>
+<tr class="row-odd"><td>iPython</td>
+<td>3</td>
+<td>5+</td>
+<td>IPython-6.3+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="syntax-versions-api">
+<h2>4.2.3. Syntax Versions API<a class="headerlink" href="#syntax-versions-api" title="Permalink to this headline">¶</a></h2>
+<p>See also <a class="reference external" href="shortcuts.html#">Shortcuts</a>.</p>
+<div class="section" id="constants">
+<h3>4.2.3.1. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h3>
+<p>The following constants provide pre-defined release values.</p>
+<blockquote>
+<div><a class="reference external" href="package_init.html#constants">PYV2 PYV27 PYV3 PYV32 PYV33 PYV34 PYV35 PYV36 PYV362 PYV365 PYV366 PYV367 PYV368 PYV369 PYV37 PYV371 PYV372 PYV373 PYV374 PYV375 PYV376 PYV38</a></div></blockquote>
+</div>
+<div class="section" id="variables">
+<h3>4.2.3.2. Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p>The provided variables are forseen to be uused by applications in fast and efficient numerical and boolean operations.</p>
+<ul>
+<li><p class="first"><a class="reference external" href="package_init.html#attributes">The 3-value Python final release of the current process in accordance to PEP440.</a> <a class="reference internal" href="references.html#pep440" id="id2">[PEP440]</a></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PYVxyz</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="package_init.html#attributes">Attributes to adjust to current major Python version to Python3 vs. Python2.</a></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PYV35Plus</span>       <span class="c1"># Python3.5+ - to be changed to 3.0+</span>
+<span class="n">PYV35Plus</span>     <span class="c1"># Python3.5+ - the safe constant</span>
+<span class="n">ISSTR</span>     <span class="c1"># string and unicode</span>
+<span class="n">unicode</span>   <span class="c1"># Superpose for generic Python3 compatibility.</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="functions">
+<h3>4.2.3.3. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><div class="nonbreakheadtab">
+<div class="autocolumntab"><table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">[docs]</th>
+<th class="head">[source]</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="package_init.html#pythonids.__init__.decode_pysyntax_str_to_num">decode_pysyntax_str_to_num</a></td>
+<td><a class="reference external" href="_modules/pythonids/__init__.html#decode_pysyntax_str_to_num">pythonids.decode_pysyntax_str_to_num</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="package_init.html#pythonids.__init__.decode_pysyntax_16bit_to_str">decode_pysyntax_16bit_to_str</a></td>
+<td><a class="reference external" href="_modules/pythonids/__init__.html#decode_pysyntax_16bit_to_str">pythonids.decode_pysyntax_16bit_to_str</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="package_init.html#pythonids.__init__.decode_pysyntax_16bit_to_tuple">decode_pysyntax_16bit_to_tuple</a></td>
+<td><a class="reference external" href="_modules/pythonids/__init__.html#decode_pysyntax_16bit_to_tuple">pythonids.decode_pysyntax_16bit_to_tuple</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="package_init.html#pythonids.__init__.decode_pysyntax_16bit_to_tuple_str">decode_pysyntax_16bit_to_tuple_str</a></td>
+<td><a class="reference external" href="_modules/pythonids/__init__.html#decode_pysyntax_16bit_to_tuple_str">pythonids.decode_pysyntax_16bit_to_tuple_str</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="package_init.html#pythonids.__init__.encode_pysyntax_to_16bit">encode_pysyntax_to_16bit</a></td>
+<td><a class="reference external" href="_modules/pythonids/__init__.html#encode_pysyntax_to_16bit">pythonids.encode_pysyntax_to_16bit</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></blockquote>
+<p>Corresponding values in case of the current process are provided e.g. by <em>sys.version</em> and <em>sys.version_info</em>.</p>
+</div>
+</div>
+<div class="section" id="comparison-with-sys-hexversion">
+<h2>4.2.4. Comparison with sys.hexversion<a class="headerlink" href="#comparison-with-sys-hexversion" title="Permalink to this headline">¶</a></h2>
+<p>The standard library provides for the Python syntax version information also the numeric value
+<em>sys.hexversion</em>, which is similar to <em>pythonids.PYVxyz</em>.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">hexversion</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>The original standard library covers the core <em>Python</em> syntax including the standard libraries of
+the reference implementation <em>CPython</em>.
+It has to be considered that the API including the provided libraries may deviate for the same syntax release version
+on alternative implementations.
+This frequently requires additional checks in order to determine the actual implementation of the current <em>Python</em>
+distribution, see  <a class="reference internal" href="python_categorization.html#pythoncategorization"><span class="std std-ref">Python Distribution Categorization</span></a>.</p>
+<p>The numeric representation is described in the manual <a class="reference internal" href="references.html#cpython" id="id4">[CPython]</a>.
+The value consumes 32bits, the encoded fields comprise some additional release
+information of interest for the Python interpreter developers only.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># major version</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># minor version</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># micro version  or build-tag</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># textual label of release level, current:</span>
+                     <span class="c1"># (&#39;alpha&#39; | &#39;beta&#39; | &#39;candidate&#39; | &#39;final&#39;)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># serial number, frequently &#39;0&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>Both variants do not contain the identification of integrated language variants
+which is covered by the <em>Python</em> distribution,
+see  <a class="reference internal" href="python_categorization.html#pythoncategorization"><span class="std std-ref">Python Distribution Categorization</span></a>.</p>
+<p>The syntax of <em>Python</em> for final production releases is specified by the <em>major(PY_MAJOR_VERSION)</em>
+and <em>minor(PY_MINOR_VERSION)</em> version number, while the optional <em>build(PY_MICRO_VERSION)</em> number
+could already be ignored in most cases <a class="reference internal" href="references.html#finalrelease" id="id5">[FINALRELEASE]</a>.
+So the <em>PY_RELEASE_LEVEL</em> and the <em>PY_RELEASE_SERIAL</em> are not meaningful relevant for production grade code,
+but are eventually used for internal test purposes.</p>
+<p>The content of the <em>sys.hexversion</em> comprises the 3-value version identifier of the
+current Python release with additional production information of the Python interpreter itself.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bits (big endian order)</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1-8</td>
+<td>PY_MAJOR_VERSION (the 2 in 2.1.0a3)</td>
+</tr>
+<tr class="row-odd"><td>9-16</td>
+<td>PY_MINOR_VERSION (the 1 in 2.1.0a3)</td>
+</tr>
+<tr class="row-even"><td>17-24</td>
+<td>PY_MICRO_VERSION (the 0 in 2.1.0a3)</td>
+</tr>
+<tr class="row-odd"><td>25-28</td>
+<td>PY_RELEASE_LEVEL (0xA for alpha, 0xB for beta, 0xC for release candidate and 0xF for final)</td>
+</tr>
+<tr class="row-even"><td>29-32</td>
+<td>PY_RELEASE_SERIAL (the 3 in 2.1.0a3, zero for final releases)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>While the 3-value version identifier actually identifies relevant information on the syntax
+and library API releases, the additional values provide basically information non/transparent to the
+system and application developer.
+In addition the comparison operations require additional steps in order to eliminate the additional bits.</p>
+<p>The  <em>pythonids.PYVxyz</em> focusses solely on the semantics related to the Python syntax
+and API definition as required for systems and application development[FINALRELEASE]_.
+Therefore utilizes the first 3-values only.
+This reduces the number of operations required on comparison opreations under some circumstances significantly.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bits</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>15-13</td>
+<td>PY_MAJOR_VERSION: 0&lt;= v &lt;= 7  (the 3 in 3.6.4)</td>
+</tr>
+<tr class="row-odd"><td>12-8</td>
+<td>PY_MINOR_VERSION: 0&lt;= v &lt;= 31 (the 6 in 3.6.4)</td>
+</tr>
+<tr class="row-even"><td>7-0</td>
+<td>PY_MICRO_VERSION: 0&lt;= v &lt;= 255 (the 4 in 3.6.4)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The endiannes is “visually similar” to the order of decimal integer numbers, thus virtually little-endian.</p>
+<p>The size of  <em>sys.hexversion</em> is 32bit while the size of <em>pythonids.PYVxyz</em> is 16bit.
+The 16bit based layout seems to be sufficient for atleast more than the next three to four decades,
+if the syntax evolution continues with curretn rate of change, else even longer.
+Thus virtually ‘endless’ in terms of IT application life cycles.</p>
+</div>
+<div class="section" id="resources">
+<h2>4.2.5. Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>CPython <a class="reference internal" href="references.html#cpython" id="id6">[CPython]</a></li>
+<li>CircuitPython <a class="reference internal" href="references.html#circuitpython" id="id7">[CircuitPython]</a></li>
+<li>Cython <a class="reference internal" href="references.html#cython" id="id8">[Cython]</a></li>
+<li>Detect if python script is run from an ipython shell, or run from the command line <a class="reference internal" href="references.html#articlestackoflowipython" id="id9">[ARTICLESTACKOFLOWIPYTHON]</a></li>
+<li>In Python how can one tell if a module comes from a C extension? <a class="reference internal" href="references.html#articlestackoflowcext" id="id10">[ARTICLESTACKOFLOWCEXT]</a></li>
+<li>IPython <a class="reference internal" href="references.html#ipython" id="id11">[IPython]</a></li>
+<li>IronPython <a class="reference internal" href="references.html#ironpython" id="id12">[IronPython]</a></li>
+<li>Jython <a class="reference internal" href="references.html#jython" id="id13">[Jython]</a></li>
+<li>MicroPython <a class="reference internal" href="references.html#micropython" id="id14">[MicroPython]</a></li>
+<li>PEP407 - New release cycle and introducing long-term support versions <a class="reference internal" href="references.html#pep407" id="id15">[PEP407]</a></li>
+<li>PEP421 - Adding sys.implementation - <a class="reference internal" href="references.html#pep421" id="id16">[PEP421]</a></li>
+<li>PEP440 - Version Identification and Dependency Specification <a class="reference internal" href="references.html#pep440" id="id17">[PEP440]</a></li>
+<li>PEP440 <a class="reference internal" href="references.html#pep440" id="id18">[PEP440]</a>  - section final releases <a class="reference internal" href="references.html#finalrelease" id="id19">[FINALRELEASE]</a></li>
+<li>PyPy <a class="reference internal" href="references.html#pypy" id="id20">[PyPy]</a></li>
+<li>Software Versioning <a class="reference internal" href="references.html#swvers" id="id21">[SWVERS]</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="python_categorization.html" class="btn btn-neutral float-right" title="4.3. Implementation Versions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="python_bitmasks.html" class="btn btn-neutral float-left" title="4.1. Bit Masks for Numeric Vectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) 2016 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez
+      <span class="lastupdated">
+        Last updated on Dec 04, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

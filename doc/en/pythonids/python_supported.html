@@ -1,0 +1,782 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.5. Supported Python Distributions &mdash; pythonids  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4.6. Distribution Versions API" href="python_distributionapi.html" />
+    <link rel="prev" title="4.4. Python Implementations" href="python_interpretes_compilers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.36
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Shortcuts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">PythonIDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_cockpit.html">apidoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_apiref_scaled.html">apiref</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index_part_abstract.html">1. Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_platform_support.html">2. Platform Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_blueprint.html">3. Blueprint</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index_part_documents.html">4. Documents</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="python_bitmasks.html">4.1. Bit Masks for Numeric Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_syntax_versions.html">4.2. Python Syntax Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_categorization.html">4.3. Implementation Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_interpretes_compilers.html">4.4. Python Implementations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.5. Supported Python Distributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cpython">4.5.1. CPython</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ipython">4.5.2. IPython</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypy">4.5.3. PyPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jython">4.5.4. Jython</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ironpython">4.5.5. IronPython</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#micropython">4.5.6. MicroPython</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#circuitpython">4.5.7. CircuitPython</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_distributionapi.html">4.6. Distribution Versions API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_encode_decode.html">4.7. Python2 and Python3 Character Encoding and Decoding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index_modules.html">5. Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_indices.html">6. Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_resources.html">7. Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">8. Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">9. External References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_license.html">10. Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Application</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/index.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pythonids</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index_part_documents.html">4. Documents</a> &raquo;</li>
+        
+      <li>4.5. Supported Python Distributions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/python_supported.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="supported-python-distributions">
+<span id="standardosdist"></span><h1>4.5. Supported Python Distributions<a class="headerlink" href="#supported-python-distributions" title="Permalink to this headline">¶</a></h1>
+<p id="python-supported">The current actively supported and tested Python distributions are:</p>
+<blockquote>
+<div><div class="indextab">
+<div class="centertab">
+<div class="nonbreakheadtab">
+<div class="autocolumntab"><table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="4%" />
+<col width="20%" />
+<col width="21%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" rowspan="2">category</th>
+<th class="head" rowspan="2"><p class="first">disttype</p>
+<p class="last">syntaxtype</p>
+</th>
+<th class="head" rowspan="2">dist</th>
+<th class="head" rowspan="2">tested distrel</th>
+<th class="head" rowspan="2">status</th>
+<th class="head" rowspan="2">doc</th>
+<th class="head" colspan="2">API</th>
+</tr>
+<tr class="row-even"><th class="head">syntax</th>
+<th class="head">distribution</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td rowspan="16">PYE_PYTHON</td>
+<td rowspan="6">PYE_PYTHON27</td>
+<td>PYE_CPYTHON</td>
+<td>2.7.*</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumcpython"><span class="std std-ref">CPython</span></a></td>
+<td rowspan="16"><a class="reference internal" href="pythonids.html#pythondistidsinit"><span class="std std-ref">pythonids</span></a></td>
+<td rowspan="16"><a class="reference internal" href="pythonids.pythondist.html#pythonparams"><span class="std std-ref">pythonids.pydist</span></a></td>
+</tr>
+<tr class="row-even"><td>PYE_IPYTHON</td>
+<td>5.6.0</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumipython"><span class="std std-ref">IPython</span></a></td>
+</tr>
+<tr class="row-odd"><td>PYE_IRONPYTHON</td>
+<td>2.7.[79]</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumironpython"><span class="std std-ref">IronPython</span></a></td>
+</tr>
+<tr class="row-even"><td>PYE_JYTHON</td>
+<td>2.7.[01]</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumjython"><span class="std std-ref">Jython</span></a></td>
+</tr>
+<tr class="row-odd"><td rowspan="2">PYE_PYPY</td>
+<td>5.8.0</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumpypy"><span class="std std-ref">PyPy</span></a></td>
+</tr>
+<tr class="row-even"><td>6.0.0</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumpypy"><span class="std std-ref">PyPy</span></a></td>
+</tr>
+<tr class="row-odd"><td rowspan="5">PYE_PYTHON35</td>
+<td>PYE_CPYTHON</td>
+<td>3.5.[345]</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumcpython"><span class="std std-ref">CPython</span></a></td>
+</tr>
+<tr class="row-even"><td>PYE_IPYTHON</td>
+<td>5.5.0</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumipython"><span class="std std-ref">IPython</span></a></td>
+</tr>
+<tr class="row-odd"><td>PYE_PYPY</td>
+<td>5.10.1</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumpypy"><span class="std std-ref">PyPy</span></a></td>
+</tr>
+<tr class="row-even"><td>PYE_PYPY</td>
+<td>6.0.0</td>
+<td>&#160;</td>
+<td><a class="reference internal" href="#enumpypy"><span class="std std-ref">PyPy</span></a></td>
+</tr>
+<tr class="row-odd"><td>PYE_PYPY</td>
+<td>7.0.0</td>
+<td>&#160;</td>
+<td><a class="reference internal" href="#enumpypy"><span class="std std-ref">PyPy</span></a></td>
+</tr>
+<tr class="row-even"><td rowspan="3">PYE_PYTHON36</td>
+<td>PYE_CPYTHON</td>
+<td>3.6.[45]</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumcpython"><span class="std std-ref">CPython</span></a></td>
+</tr>
+<tr class="row-odd"><td>PYE_IPYTHON</td>
+<td>6.3.1</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumipython"><span class="std std-ref">IPython</span></a></td>
+</tr>
+<tr class="row-even"><td>PYE_PYPY</td>
+<td>7.0.0</td>
+<td>&#160;</td>
+<td><a class="reference internal" href="#enumpypy"><span class="std std-ref">PyPy</span></a></td>
+</tr>
+<tr class="row-odd"><td rowspan="2">PYE_PYTHON37</td>
+<td>PYE_CPYTHON</td>
+<td>3.7.[012]</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumcpython"><span class="std std-ref">CPython</span></a></td>
+</tr>
+<tr class="row-even"><td>PYE_IPYTHON</td>
+<td>6.5.0</td>
+<td>OK</td>
+<td><a class="reference internal" href="#enumipython"><span class="std std-ref">IPython</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div></blockquote>
+<div class="section" id="cpython">
+<span id="enumcpython"></span><h2>4.5.1. CPython<a class="headerlink" href="#cpython" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="50%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">type</th>
+<th class="head">enum</th>
+<th class="head">string</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>category</td>
+<td>PYE_PYTHON</td>
+<td>posix</td>
+</tr>
+<tr class="row-odd"><td>disttype</td>
+<td>PYE_PYTHON27</td>
+<td>python27</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>PYE_PYTHON35</td>
+<td>python35</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>PYE_PYTHON36</td>
+<td>python36</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>PYE_PYTHON37</td>
+<td>python37</td>
+</tr>
+<tr class="row-odd"><td>dist</td>
+<td>PYE_CPYTHON</td>
+<td>cpython</td>
+</tr>
+<tr class="row-even"><td>distrel</td>
+<td>see disttype</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>pretty</td>
+<td>PYE_CPYTHON_PRETTY</td>
+<td>CPython</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Examples</strong>:</p>
+<p>The definition for <strong>CPython-2.7.15</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CPython</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">15</span>
+
+<span class="n">PYE_PYTHON</span>    <span class="o">=</span>  <span class="mh">0x80000000</span>
+<span class="n">PYE_PYTHON27</span>  <span class="o">=</span>  <span class="mh">0x23800000</span>
+<span class="n">PYE_CPYTHON</span>   <span class="o">=</span>  <span class="mh">0x00040000</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>    <span class="o">=</span>  <span class="mh">0x000021cf</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0x238421cf</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0xa38421cf</span>  <span class="c1"># optional PYE_PYTHON, actually ignored</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="_images/bitarray-complete-to-bytes-example-cpython2715.png"><img alt="bitarraycpython2715" src="_images/bitarray-complete-to-bytes-example-cpython2715.png" style="width: 550px;" /></a>
+<a class="reference external" href="_static/bitarray-complete-to-bytes-example-cpython2715.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></p>
+</div></blockquote>
+<p>Color codes see <a class="reference internal" href="python_categorization.html#distnumberingschemes"><span class="std std-ref">Numbering Schemes</span></a>.</p>
+<p>The definition for <strong>CPython-3.7.1</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CPython</span><span class="o">-</span><span class="mf">3.7</span><span class="o">.</span><span class="mi">1</span>
+
+<span class="n">PYE_PYTHON</span>    <span class="o">=</span>  <span class="mh">0x80000000</span>
+<span class="n">PYE_PYTHON37</span>  <span class="o">=</span>  <span class="mh">0x33800000</span>
+<span class="n">PYE_CPYTHON</span>   <span class="o">=</span>  <span class="mh">0x00040000</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>     <span class="o">=</span>  <span class="mh">0x000031c1</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0x338431c1</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0xb38431c1</span>  <span class="c1"># optional PYE_PYTHON, actually ignored</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="_images/bitarray-complete-to-bytes-example-cpython371.png"><img alt="bitarraycpython371" src="_images/bitarray-complete-to-bytes-example-cpython371.png" style="width: 550px;" /></a>
+<a class="reference external" href="_static/bitarray-complete-to-bytes-example-cpython371.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></p>
+</div></blockquote>
+<p>Color codes see <a class="reference internal" href="python_categorization.html#distnumberingschemes"><span class="std std-ref">Numbering Schemes</span></a>.</p>
+</div>
+<div class="section" id="ipython">
+<span id="enumipython"></span><h2>4.5.2. IPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="52%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">type</th>
+<th class="head">enum</th>
+<th class="head">string</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>category</td>
+<td>PYE_PYTHON</td>
+<td>posix</td>
+</tr>
+<tr class="row-odd"><td>disttype</td>
+<td>PYE_PYTHON27</td>
+<td>python27</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>PYE_PYTHON37</td>
+<td>python37</td>
+</tr>
+<tr class="row-odd"><td>dist</td>
+<td>PYE_IPYTHON</td>
+<td>ipython</td>
+</tr>
+<tr class="row-even"><td>distrel</td>
+<td>distribution version</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>pretty</td>
+<td>PYE_IPYTHON_PRETTY</td>
+<td>IPython</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Examples</strong>:</p>
+<p>The definition for <strong>IPthon-5.6.0</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IPython</span><span class="o">-</span><span class="mf">5.6</span><span class="o">.</span><span class="mi">0</span>
+
+<span class="n">PYE_PYTHON</span>    <span class="o">=</span>  <span class="mh">0x80000000</span>
+<span class="n">PYE_PYTHON27</span>  <span class="o">=</span>  <span class="mh">0x23800000</span>
+<span class="n">PYE_IPYTHON</span>   <span class="o">=</span>  <span class="mh">0x00100000</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>     <span class="o">=</span>  <span class="mh">0x00005180</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0x23905180</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0xa3905180</span>  <span class="c1"># optional PYE_PYTHON, actually ignored</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="_images/bitarray-complete-to-bytes-example-ipython56.png"><img alt="bitarrayipython56" src="_images/bitarray-complete-to-bytes-example-ipython56.png" style="width: 550px;" /></a>
+<a class="reference external" href="_static/bitarray-complete-to-bytes-example-ipython56.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></p>
+</div></blockquote>
+<p>Color codes see <a class="reference internal" href="python_categorization.html#distnumberingschemes"><span class="std std-ref">Numbering Schemes</span></a>.</p>
+<p>The definition for <strong>IPython-6.3.0</strong>:</p>
+<blockquote>
+<div><pre class="literal-block">
+The definition for <strong>IPython-6.3.0</strong>:
+
+PYE_PYTHON    =  0x80000000
+PYE_PYTHON37  =  0x33800000
+PYE_IPYTHON   =  0x00100000
+(6, 3, 0)     =  0x000060c0
+
+PYDIST        =  0x339060c0
+
+PYDIST        =  0xb39060c0  # optional PYE_PYTHON, actually ignored
+</pre>
+<p><a class="reference internal" href="_images/bitarray-complete-to-bytes-example-ipython63.png"><img alt="bitarrayipython63" src="_images/bitarray-complete-to-bytes-example-ipython63.png" style="width: 550px;" /></a>
+<a class="reference external" href="_static/bitarray-complete-to-bytes-example-ipython63.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></p>
+</div></blockquote>
+<p>Color codes see <a class="reference internal" href="python_categorization.html#distnumberingschemes"><span class="std std-ref">Numbering Schemes</span></a>.</p>
+</div>
+<div class="section" id="pypy">
+<span id="enumpypy"></span><h2>4.5.3. PyPy<a class="headerlink" href="#pypy" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="52%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">type</th>
+<th class="head">enum</th>
+<th class="head">string</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>category</td>
+<td>PYE_PYTHON</td>
+<td>posix</td>
+</tr>
+<tr class="row-odd"><td>disttype</td>
+<td>PYE_PYTHON27</td>
+<td>python27</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>PYE_PYTHON35</td>
+<td>python35</td>
+</tr>
+<tr class="row-odd"><td>dist</td>
+<td>PYE_PYPY</td>
+<td>pypy</td>
+</tr>
+<tr class="row-even"><td>distrel</td>
+<td>distribution version</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>pretty</td>
+<td>PYE_PYPY_PRETTY</td>
+<td>PyPy</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Examples</strong>:</p>
+<p>The definition for <strong>PyPy-5.8.0</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PyPy</span><span class="o">-</span><span class="mf">5.8</span><span class="o">.</span><span class="mi">0</span>
+
+<span class="n">PYE_PYTHON</span>    <span class="o">=</span>  <span class="mh">0x80000000</span>
+<span class="n">PYE_PYTHON27</span>  <span class="o">=</span>  <span class="mh">0x23800000</span>  <span class="c1"># Python-2.7.13</span>
+<span class="n">PYE_PYPY</span>      <span class="o">=</span>  <span class="mh">0x00200000</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>     <span class="o">=</span>  <span class="mh">0x00005200</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0x23a05200</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0xa3905200</span>  <span class="c1"># optional PYE_PYTHON, actually ignored</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="_images/bitarray-complete-to-bytes-example-pypy58.png"><img alt="bitarraypypy58" src="_images/bitarray-complete-to-bytes-example-pypy58.png" style="width: 550px;" /></a>
+<a class="reference external" href="_static/bitarray-complete-to-bytes-example-pypy58.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></p>
+</div></blockquote>
+<p>Color codes see <a class="reference internal" href="python_categorization.html#distnumberingschemes"><span class="std std-ref">Numbering Schemes</span></a>.</p>
+<p>The definition for <strong>PyPy2-6.0.0</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PyPy2</span><span class="o">-</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">0</span>
+
+<span class="n">PYE_PYTHON</span>    <span class="o">=</span>  <span class="mh">0x80000000</span>
+<span class="n">PYE_PYTHON27</span>  <span class="o">=</span>  <span class="mh">0x23800000</span>  <span class="c1"># Python-2.7.13</span>
+<span class="n">PYE_PYPY</span>      <span class="o">=</span>  <span class="mh">0x00200000</span>
+<span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>     <span class="o">=</span>  <span class="mh">0x00006000</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0x23a06000</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0xa3a06000</span>  <span class="c1"># optional PYE_PYTHON, actually ignored</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="_images/bitarray-complete-to-bytes-example-pypy260.png"><img alt="bitarraypypy260" src="_images/bitarray-complete-to-bytes-example-pypy260.png" style="width: 550px;" /></a>
+<a class="reference external" href="_static/bitarray-complete-to-bytes-example-pypy260.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></p>
+</div></blockquote>
+<p>Color codes see <a class="reference internal" href="python_categorization.html#distnumberingschemes"><span class="std std-ref">Numbering Schemes</span></a>.</p>
+<p>The definition for <strong>PyPy3-6.0.0</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PyPy3</span><span class="o">-</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">0</span>
+
+<span class="n">PYE_PYTHON</span>    <span class="o">=</span>  <span class="mh">0x80000000</span>
+<span class="n">PYE_PYTHON35</span>  <span class="o">=</span>  <span class="mh">0x32800000</span>  <span class="c1"># Python-3.5.3</span>
+<span class="n">PYE_PYPY</span>      <span class="o">=</span>  <span class="mh">0x00200000</span>
+<span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>     <span class="o">=</span>  <span class="mh">0x00006000</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0x32a06000</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0xb2a06000</span>  <span class="c1"># optional PYE_PYTHON, actually ignored</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="_images/bitarray-complete-to-bytes-example-pypy360.png"><img alt="bitarraypypy360" src="_images/bitarray-complete-to-bytes-example-pypy360.png" style="width: 550px;" /></a>
+<a class="reference external" href="_static/bitarray-complete-to-bytes-example-pypy360.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></p>
+</div></blockquote>
+<p>Color codes see <a class="reference internal" href="python_categorization.html#distnumberingschemes"><span class="std std-ref">Numbering Schemes</span></a>.</p>
+</div>
+<div class="section" id="jython">
+<span id="enumjython"></span><h2>4.5.4. Jython<a class="headerlink" href="#jython" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="52%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">type</th>
+<th class="head">enum</th>
+<th class="head">string</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>category</td>
+<td>PYE_PYTHON</td>
+<td>posix</td>
+</tr>
+<tr class="row-odd"><td>disttype</td>
+<td>PYE_PYTHON27</td>
+<td>python27</td>
+</tr>
+<tr class="row-even"><td>dist</td>
+<td>PYE_JYTHON</td>
+<td>jython</td>
+</tr>
+<tr class="row-odd"><td>distrel</td>
+<td>distribution version</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>pretty</td>
+<td>PYE_JYTHON_PRETTY</td>
+<td>Jython</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Examples</strong>:</p>
+<p>The definition for <strong>Jython-2.7.1</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Jython</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">1</span>
+
+<span class="n">PYE_PYTHON</span>    <span class="o">=</span>  <span class="mh">0x80000000</span>
+<span class="n">PYE_PYTHON27</span>  <span class="o">=</span>  <span class="mh">0x23800000</span>
+<span class="n">PYE_JYTHON</span>    <span class="o">=</span>  <span class="mh">0x00180000</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>     <span class="o">=</span>  <span class="mh">0x000021c1</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0x239821c1</span>
+
+<span class="n">PYDIST</span>        <span class="o">=</span>  <span class="mh">0xa39821c1</span>  <span class="c1"># optional PYE_PYTHON, actually ignored</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="_images/bitarray-complete-to-bytes-example-jython27.png"><img alt="bitarrayjython27" src="_images/bitarray-complete-to-bytes-example-jython27.png" style="width: 550px;" /></a>
+<a class="reference external" href="_static/bitarray-complete-to-bytes-example-jython27.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></p>
+</div></blockquote>
+<p>Color codes see <a class="reference internal" href="python_categorization.html#distnumberingschemes"><span class="std std-ref">Numbering Schemes</span></a>.</p>
+</div>
+<div class="section" id="ironpython">
+<span id="enumironpython"></span><h2>4.5.5. IronPython<a class="headerlink" href="#ironpython" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="51%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">type</th>
+<th class="head">enum</th>
+<th class="head">string</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>category</td>
+<td>PYE_PYTHON</td>
+<td>posix</td>
+</tr>
+<tr class="row-odd"><td>disttype</td>
+<td>PYE_PYTHON27</td>
+<td>python27</td>
+</tr>
+<tr class="row-even"><td>dist</td>
+<td>PYE_IRONPYTHON</td>
+<td>ironpython</td>
+</tr>
+<tr class="row-odd"><td>distrel</td>
+<td>distribution version</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>pretty</td>
+<td>PYE_IRONPYTHON_PRETTY</td>
+<td>IronPython</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Examples</strong>:</p>
+<p>The definition for <strong>IronPython-2.7.7</strong>:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IronPython</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">7</span>
+
+<span class="n">PYE_PYTHON</span>      <span class="o">=</span>  <span class="mh">0x80000000</span>
+<span class="n">PYE_PYTHON27</span>    <span class="o">=</span>  <span class="mh">0x23800000</span>
+<span class="n">PYE_IRONPYTHON</span>  <span class="o">=</span>  <span class="mh">0x00140000</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>       <span class="o">=</span>  <span class="mh">0x000021c7</span>
+
+<span class="n">PYDIST</span>          <span class="o">=</span>  <span class="mh">0x239421c7</span>
+
+<span class="n">PYDIST</span>          <span class="o">=</span>  <span class="mh">0xa39421c7</span>  <span class="c1"># optional PYE_PYTHON, actually ignored</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="_images/bitarray-complete-to-bytes-example-ironpython27.png"><img alt="bitarrayironpython27" src="_images/bitarray-complete-to-bytes-example-ironpython27.png" style="width: 550px;" /></a>
+<a class="reference external" href="_static/bitarray-complete-to-bytes-example-ironpython27.png"><img alt="zoom" src="_images/zoom.png" style="width: 16px;" /></a></p>
+</div></blockquote>
+<p>Color codes see <a class="reference internal" href="python_categorization.html#distnumberingschemes"><span class="std std-ref">Numbering Schemes</span></a>.</p>
+</div>
+<div class="section" id="micropython">
+<h2>4.5.6. MicroPython<a class="headerlink" href="#micropython" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">coming soon</p>
+</div>
+</div>
+<div class="section" id="circuitpython">
+<h2>4.5.7. CircuitPython<a class="headerlink" href="#circuitpython" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">coming soon</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="python_distributionapi.html" class="btn btn-neutral float-right" title="4.6. Distribution Versions API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="python_interpretes_compilers.html" class="btn btn-neutral float-left" title="4.4. Python Implementations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) 2016 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez
+      <span class="lastupdated">
+        Last updated on Dec 04, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

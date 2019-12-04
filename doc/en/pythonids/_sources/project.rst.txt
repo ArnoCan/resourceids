@@ -1,0 +1,20 @@
+**Product Data**
+
+* MISSION=The 'pythonids' package provides the identification and enumeration of Python syntax and implementation.
+
+* AUTHOR=Arno-Can Uestuensoez
+
+* PROJECT=pythonids
+
+* COPYRIGHT=(C)2019 Arno-Can Uestuensoez
+
+* LICENSE=Artistic-License-2.0 + Forced-Fairplay-Constraints
+
+* VERSION=0.1.33
+
+* RELEASE=0.1.33-rc0
+
+* STATUS=Unknown
+
+* BUILDDATE=2019.12.04-06:48
+
