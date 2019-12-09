@@ -18,6 +18,13 @@
 /**/dist/
 /**/*.egg-info/
 
+*.VSD
+*.vsd
+
+setenv.sh
+setenv-acue2.sh
+setenv-acue3.sh
+
 
 # by default these are copies only, the source are in components 
 # and/or src if required set individually
